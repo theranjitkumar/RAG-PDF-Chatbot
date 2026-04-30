@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -9,11 +10,25 @@ from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
 app = FastAPI(title="RAG Chatbot API")
 
+# ✅ ADD CORS HERE (right after app creation)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[  
+        "*", 
+        "http://localhost:8000",
+        "https://techplusglobal.com",
+        "https://moderntechacademy.com",        
+        ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # -----------------------------
 # Config
 # -----------------------------
 INDEX_PATH = "faiss_index"
-PDF_PATH = "data/TechPlusGlobal.pdf"
+PDF_PATH = "public/data/Ranjitk.pdf"
 
 # -----------------------------
 # Load Embeddings
