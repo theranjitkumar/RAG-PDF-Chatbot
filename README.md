@@ -50,7 +50,7 @@ Make sure you have installed:
 ## 1. Clone Project
 
 ```
-git clone <your-repo-url>
+git clone https://github.com/theranjitkumar/RAG-PDF-Chatbot.git
 cd rag-chatbot
 ```
 
