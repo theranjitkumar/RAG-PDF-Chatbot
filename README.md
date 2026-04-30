@@ -16,7 +16,7 @@ A fully local **Retrieval-Augmented Generation (RAG)** chatbot that allows you t
 * ⚡ Fast vector search with FAISS
 * 🤖 LLM-based answer generation
 * 💬 Console-based chatbot (`main.py`)
-* 🌐 REST API backend (`ragapi.py`)
+* 🌐 REST API backend (`localRagApi.py`)
 * 🔌 Ready for frontend integration (Angular / React)
 
 ---
@@ -26,7 +26,7 @@ A fully local **Retrieval-Augmented Generation (RAG)** chatbot that allows you t
 ```
 rag-chatbot/
 │── main.py          # Console chatbot
-│── ragapi.py        # FastAPI backend
+│── localRagApi.py        # FastAPI backend
 │── data/
 │     └── sample.pdf
 │── faiss_index/     # (optional) saved vector DB
@@ -140,7 +140,7 @@ Ask: Explain embeddings
 Run server:
 
 ```
-uvicorn ragapi:app --reload
+uvicorn localRagApi:app --reload
 ```
 
 ---
@@ -278,6 +278,9 @@ from langchain_ollama import OllamaEmbeddings, OllamaLLM
 * 💾 Chat history memory
 * 🌐 Frontend (Angular / React)
 * 🐳 Docker deployment
+
+##  How to freez requirements.txt 
+  pip freeze > requirements.txt  
 
 ---
 
